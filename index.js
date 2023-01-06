@@ -6,12 +6,14 @@ const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
 
+// unload leads currently in the local storage
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
     render(myLeads)
 }
 
-tabBtn.addEventListener("click", (event)=>{    
+tabBtn.addEventListener("click", (event)=>{  
+    // get the current chrome tab link adress and push the "lead" into local storage as well as the myLeads array
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         myLeads.push(tabs[0].url)
         localStorage.setItem("myLeads", JSON.stringify(myLeads) )
@@ -19,6 +21,7 @@ tabBtn.addEventListener("click", (event)=>{
     })
 })
 
+// render a list of leads into the display area
 function render(leads) {
     let listItems = ""
     for (let i = 0; i < leads.length; i++) {
