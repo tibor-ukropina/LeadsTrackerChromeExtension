@@ -10,4 +10,4 @@ How to run:
 2. Visit: chrome://extensions/
 3. Turn on developer mode (top right)
 4. Press Load Unpacked (top left)
-5. Select unzipped folder 
+5. Select the unzipped folder 
